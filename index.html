@@ -450,7 +450,7 @@ ship.openSource()</code></pre>
 
     const getOrganizerDistance = () => {
       const distance = Math.max(0, organizerTrack.scrollWidth - organizerViewport.clientWidth);
-      organizerSection.style.setProperty('--organizer-distance', `${distance}px`);
+      organizerSection.style.setProperty('--organizer-distance', `${distance + window.innerHeight}px`);
       return distance;
     };
 
@@ -478,10 +478,10 @@ ship.openSource()</code></pre>
             id: 'organizer-horizontal-scroll',
             trigger: organizerSection,
             pin: organizerSticky,
-            pinSpacing: false,
-            start: () => `top top+=${headerHeight()}`,
-            end: () => `+=${Math.max(1, getOrganizerDistance())}`,
-            scrub: 0.85,
+            pinSpacing: true,
+            start: () => `top top+=${headerHeight() + 4}`,
+            end: () => `+=${Math.max(1, getOrganizerDistance() + window.innerHeight * 0.28)}`,
+            scrub: 1,
             anticipatePin: 1,
             invalidateOnRefresh: true
           }

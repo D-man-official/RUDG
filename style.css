@@ -777,7 +777,7 @@ pre {
 .organizers-section {
   --organizer-distance: 900px;
   position: relative;
-  min-height: calc(100vh + var(--organizer-distance));
+  min-height: 100vh;
   padding-top: 0;
   padding-bottom: 0;
   background:
@@ -787,17 +787,25 @@ pre {
 }
 
 .organizer-sticky {
-  position: sticky;
-  top: 72px;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: calc(100vh - 72px);
-  padding: clamp(54px, 6vw, 86px) 0;
+  padding: clamp(18px, 3vh, 34px) 0;
 }
 
 .organizers-section .section-heading {
   padding-inline: clamp(20px, 6vw, 88px);
+  margin-bottom: clamp(18px, 3vh, 30px);
+}
+
+.organizers-section .section-heading h2 {
+  max-width: 920px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: clamp(2.05rem, 4.6vw, 4.05rem);
+  line-height: 1.08;
 }
 
 .organizer-scroll {
@@ -806,7 +814,7 @@ pre {
   margin-left: calc(clamp(20px, 6vw, 88px) * -1);
   overflow-x: hidden;
   overflow-y: hidden;
-  padding: 20px clamp(20px, 6vw, 88px) 56px;
+  padding: 8px clamp(20px, 6vw, 88px) 26px;
   scrollbar-width: none;
 }
 
@@ -848,7 +856,7 @@ pre {
 .organizer-grid .profile-card {
   display: grid;
   align-content: start;
-  min-height: 360px;
+  min-height: clamp(285px, 38vh, 330px);
   border-color: rgba(255, 255, 255, 0.62);
   background: rgba(255, 255, 255, 0.74);
   box-shadow: 0 24px 70px rgba(60, 64, 67, 0.1);
@@ -856,7 +864,13 @@ pre {
 }
 
 .organizer-grid .profile-card:nth-child(even) {
-  margin-top: 42px;
+  margin-top: clamp(12px, 2vh, 24px);
+}
+
+.organizer-grid .avatar {
+  width: clamp(96px, 12vh, 124px);
+  height: clamp(96px, 12vh, 124px);
+  font-size: clamp(1.6rem, 4vh, 2rem);
 }
 
 .organizer-grid .profile-card::before {
@@ -1151,8 +1165,7 @@ pre {
   }
 
   .organizer-sticky {
-    top: 66px;
-    min-height: calc(100vh - 66px);
+    min-height: 100vh;
   }
 
   .organizer-grid {
