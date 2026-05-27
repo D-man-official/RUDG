@@ -360,6 +360,27 @@ ship.openSource()</code></pre>
       });
     });
 
+    document.querySelectorAll('.brand[href="#home"]').forEach((brandLink) => {
+      brandLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        const scroller = document.scrollingElement || document.documentElement;
+
+        if (window.gsap) {
+          gsap.to(scroller, {
+            scrollTop: 0,
+            duration: 0.9,
+            ease: 'power3.out'
+          });
+          return;
+        }
+
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    });
+
     if (window.matchMedia('(pointer: fine)').matches) {
       window.addEventListener('pointermove', (event) => {
         const x = `${event.clientX}px`;
@@ -458,6 +479,27 @@ ship.openSource()</code></pre>
 
     const setupOrganizerMotion = () => {
       const distance = getOrganizerDistance();
+      const shouldUsePinnedOrganizers = window.matchMedia('(min-width: 821px)').matches;
+
+      if (!shouldUsePinnedOrganizers) {
+        if (organizerFallbackFrame) {
+          cancelAnimationFrame(organizerFallbackFrame);
+          organizerFallbackFrame = null;
+        }
+
+        if (window.gsap && window.ScrollTrigger) {
+          ScrollTrigger.getAll()
+            .filter((trigger) => trigger.vars.id === 'organizer-horizontal-scroll')
+            .forEach((trigger) => trigger.kill());
+          gsap.killTweensOf(organizerTrack);
+          gsap.set(organizerTrack, { clearProps: 'transform' });
+        } else {
+          organizerTrack.style.transform = '';
+        }
+
+        organizerSection.style.removeProperty('--organizer-distance');
+        return;
+      }
 
       if (window.gsap && window.ScrollTrigger) {
         if (organizerFallbackFrame) {
