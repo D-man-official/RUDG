@@ -8,8 +8,21 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <noscript>
+    <style>
+      .reveal,
+      .reveal-item {
+        opacity: 1;
+        transform: none;
+      }
+    </style>
+  </noscript>
 </head>
 <body>
+  <canvas class="click-spark-canvas" aria-hidden="true"></canvas>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <header class="site-header">
     <a class="brand" href="#home" aria-label="RUDG home">
       <span class="brand-mark">
@@ -40,8 +53,8 @@
   </header>
 
   <main id="home">
-    <section class="hero section">
-      <div class="hero-content">
+    <section class="hero section reveal">
+      <div class="hero-content reveal-item">
         <p class="eyebrow">Student-led tech community of DCIS</p>
         <h1>Raiganj University Developers Group (RUDG)</h1>
         <p class="tagline">Build. Learn. Innovate.</p>
@@ -53,9 +66,23 @@
           <a class="btn primary" href="#join">Join Community</a>
           <a class="btn secondary" href="#events">Explore Events</a>
         </div>
+        <div class="hero-stats" aria-label="Community highlights">
+          <div>
+            <strong>4+</strong>
+            <span>Learning tracks</span>
+          </div>
+          <div>
+            <strong>10+</strong>
+            <span>Campus events</span>
+          </div>
+          <div>
+            <strong>1</strong>
+            <span>Builder community</span>
+          </div>
+        </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual reveal-item" aria-hidden="true">
         <div class="visual-ring">
           <div class="code-window">
             <div class="window-dots">
@@ -82,13 +109,13 @@ ship.openSource()</code></pre>
       </div>
     </section>
 
-    <section class="section about-section" id="about">
-      <div class="section-heading">
+    <section class="section about-section reveal" id="about">
+      <div class="section-heading reveal-item">
         <p class="eyebrow">About</p>
         <h2>A campus community for builders, learners, and future technologists.</h2>
       </div>
       <div class="about-grid">
-        <div class="about-copy">
+        <div class="about-copy reveal-item">
           <p>
             Raiganj University Developers Group is a student-led tech community of DCIS,
             Raiganj University. We bring curious students together to learn practical skills
@@ -99,7 +126,7 @@ ship.openSource()</code></pre>
             workshops, community events, and collaborative problem solving.
           </p>
         </div>
-        <div class="focus-list" aria-label="RUDG focus areas">
+        <div class="focus-list reveal-item" aria-label="RUDG focus areas">
           <span>Web Development</span>
           <span>AI Tools</span>
           <span>Hackathons</span>
@@ -110,13 +137,13 @@ ship.openSource()</code></pre>
       </div>
     </section>
 
-    <section class="section events-section" id="events">
-      <div class="section-heading">
+    <section class="section events-section reveal" id="events">
+      <div class="section-heading reveal-item">
         <p class="eyebrow">Upcoming events</p>
         <h2>Learn by showing up, building together, and sharing what works.</h2>
       </div>
       <div class="event-grid">
-        <article class="event-card">
+        <article class="event-card reveal-item">
           <div class="event-date">
             <span>Jun</span>
             <strong>14</strong>
@@ -127,7 +154,7 @@ ship.openSource()</code></pre>
             <a class="card-link" href="#join">Register</a>
           </div>
         </article>
-        <article class="event-card">
+        <article class="event-card reveal-item">
           <div class="event-date red">
             <span>Jun</span>
             <strong>21</strong>
@@ -138,7 +165,7 @@ ship.openSource()</code></pre>
             <a class="card-link" href="#join">Register</a>
           </div>
         </article>
-        <article class="event-card">
+        <article class="event-card reveal-item">
           <div class="event-date yellow">
             <span>Jul</span>
             <strong>05</strong>
@@ -149,7 +176,7 @@ ship.openSource()</code></pre>
             <a class="card-link" href="#join">Register</a>
           </div>
         </article>
-        <article class="event-card">
+        <article class="event-card reveal-item">
           <div class="event-date green">
             <span>Jul</span>
             <strong>12</strong>
@@ -163,28 +190,28 @@ ship.openSource()</code></pre>
       </div>
     </section>
 
-    <section class="section past-section" id="past">
-      <div class="section-heading center">
+    <section class="section past-section reveal" id="past">
+      <div class="section-heading center reveal-item">
         <p class="eyebrow">Past events</p>
         <h2>Moments from the community.</h2>
       </div>
       <div class="past-grid">
-        <article class="past-card">
+        <article class="past-card reveal-item">
           <div class="event-image image-ai"><span>AI</span></div>
           <p>April 2026</p>
           <h3>Build with AI: Prompting and Prototyping</h3>
         </article>
-        <article class="past-card">
+        <article class="past-card reveal-item">
           <div class="event-image image-web"><span>{ }</span></div>
           <p>March 2026</p>
           <h3>Frontend Fundamentals for First Years</h3>
         </article>
-        <article class="past-card">
+        <article class="past-card reveal-item">
           <div class="event-image image-cloud"><span>&lt;/&gt;</span></div>
           <p>February 2026</p>
           <h3>Version Control and GitHub Basics</h3>
         </article>
-        <article class="past-card">
+        <article class="past-card reveal-item">
           <div class="event-image image-hack"><span>24h</span></div>
           <p>January 2026</p>
           <h3>Hackathon Ideation Sprint</h3>
@@ -192,13 +219,13 @@ ship.openSource()</code></pre>
       </div>
     </section>
 
-    <section class="section organizers-section" id="organizers">
-      <div class="section-heading center">
+    <section class="section organizers-section reveal" id="organizers">
+      <div class="section-heading center reveal-item">
         <p class="eyebrow">Organizers</p>
         <h2>Students helping students build confidence with technology.</h2>
       </div>
       <div class="organizer-grid">
-        <article class="profile-card">
+        <article class="profile-card reveal-item">
           <div class="avatar avatar-one">DS</div>
           <h3>Dhiman Sutradhar</h3>
           <p>Community Lead</p>
@@ -207,7 +234,7 @@ ship.openSource()</code></pre>
             <a href="#" aria-label="Dhiman Sutradhar GitHub">GitHub</a>
           </div>
         </article>
-        <article class="profile-card">
+        <article class="profile-card reveal-item">
           <div class="avatar avatar-two">JU</div>
           <h3>Jayanta Sarkar</h3>
           <p>Events Coordinator</p>
@@ -216,7 +243,7 @@ ship.openSource()</code></pre>
             <a href="#" aria-label="Jayanta Sarkar GitHub">GitHub</a>
           </div>
         </article>
-        <article class="profile-card">
+        <article class="profile-card reveal-item">
           <div class="avatar avatar-three">MA</div>
           <h3>Md Asif</h3>
           <p>Technical Mentor</p>
@@ -225,7 +252,7 @@ ship.openSource()</code></pre>
             <a href="#" aria-label="Md Asif GitHub">GitHub</a>
           </div>
         </article>
-        <article class="profile-card">
+        <article class="profile-card reveal-item">
           <div class="avatar avatar-four">DP</div>
           <h3>Digbijay Pramanik</h3>
           <p>Design and Outreach</p>
@@ -237,22 +264,22 @@ ship.openSource()</code></pre>
       </div>
     </section>
 
-    <section class="section partners-section" id="partners">
-      <div class="section-heading">
+    <section class="section partners-section reveal" id="partners">
+      <div class="section-heading reveal-item">
         <p class="eyebrow">Partners & sponsors</p>
         <h2>Supported by collaborators who believe in student innovation.</h2>
       </div>
       <div class="logo-grid" aria-label="Partner logos">
-        <div class="logo-card color-hub"><span>The Color Hub</span></div>
-        <div class="logo-card"><span>DCIS</span></div>
-        <div class="logo-card"><span>CodeCircle</span></div>
-        <div class="logo-card"><span>CloudLab</span></div>
-        <div class="logo-card"><span>Open Campus</span></div>
-        <div class="logo-card"><span>TechNest</span></div>
+        <div class="logo-card color-hub reveal-item"><span>The Color Hub</span></div>
+        <div class="logo-card reveal-item"><span>DCIS</span></div>
+        <div class="logo-card reveal-item"><span>CodeCircle</span></div>
+        <div class="logo-card reveal-item"><span>CloudLab</span></div>
+        <div class="logo-card reveal-item"><span>Open Campus</span></div>
+        <div class="logo-card reveal-item"><span>TechNest</span></div>
       </div>
     </section>
 
-    <section class="join-section" id="join">
+    <section class="join-section reveal" id="join">
       <div>
         <p class="eyebrow">Join RUDG</p>
         <h2>Ready to build your next skill with the community?</h2>
@@ -261,34 +288,59 @@ ship.openSource()</code></pre>
     </section>
   </main>
 
-  <footer class="footer">
-    <div>
-      <a class="brand footer-brand" href="#home" aria-label="RUDG home">
-        <span class="brand-mark">
-          <span class="mark-blue"></span>
-          <span class="mark-red"></span>
-          <span class="mark-yellow"></span>
-          <span class="mark-green"></span>
-        </span>
-        <span>
-          <strong>RUDG</strong>
-          <small>Raiganj University Developers Group</small>
-        </span>
-      </a>
+  <footer class="footer reveal">
+    <div class="footer-main">
+      <div class="footer-about">
+        <a class="brand footer-brand" href="#home" aria-label="RUDG home">
+          <span class="brand-mark">
+            <span class="mark-blue"></span>
+            <span class="mark-red"></span>
+            <span class="mark-yellow"></span>
+            <span class="mark-green"></span>
+          </span>
+          <span>
+            <strong>RUDG</strong>
+            <small>Raiganj University Developers Group</small>
+          </span>
+        </a>
+        <p>Student-led tech community for builders, designers, hackers, and curious learners at DCIS, Raiganj University.</p>
+      </div>
+      <div class="footer-column">
+        <h3>Explore</h3>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#partners">Partners</a>
+      </div>
+      <div class="footer-column">
+        <h3>Connect</h3>
+        <a href="mailto:rudg@raiganjuniversity.ac.in">Email</a>
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <p>DCIS, Raiganj University</p>
+      <p class="copyright">Copyright &copy; 2026 Raiganj University Developers Group. All rights reserved.</p>
     </div>
-    <div class="footer-links">
-      <a href="mailto:rudg@raiganjuniversity.ac.in">rudg@raiganjuniversity.ac.in</a>
-      <a href="#">Instagram</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">GitHub</a>
-    </div>
-    <p class="copyright">Copyright &copy; 2026 Raiganj University Developers Group. All rights reserved.</p>
   </footer>
 
   <script>
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.nav-links');
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorGlow = document.querySelector('.cursor-glow');
+    const sparkCanvas = document.querySelector('.click-spark-canvas');
+    const sparkContext = sparkCanvas.getContext('2d');
+    const sparks = [];
+    const sparkColors = ['#4285f4', '#ea4335', '#fbbc04', '#34a853', '#ffffff'];
+    const sparkConfig = {
+      size: 13,
+      radius: 28,
+      count: 10,
+      duration: 520
+    };
 
     toggle.addEventListener('click', () => {
       const isOpen = nav.classList.toggle('is-open');
@@ -301,6 +353,108 @@ ship.openSource()</code></pre>
         toggle.setAttribute('aria-expanded', 'false');
       });
     });
+
+    if (window.matchMedia('(pointer: fine)').matches) {
+      window.addEventListener('pointermove', (event) => {
+        const x = `${event.clientX}px`;
+        const y = `${event.clientY}px`;
+        cursorDot.style.left = x;
+        cursorDot.style.top = y;
+        cursorGlow.style.left = x;
+        cursorGlow.style.top = y;
+      });
+
+      document.querySelectorAll('a, button, .event-card, .past-card, .profile-card, .logo-card, .focus-list span, .hero-stats div').forEach((element) => {
+        element.addEventListener('mouseenter', () => document.body.classList.add('cursor-active'));
+        element.addEventListener('mouseleave', () => document.body.classList.remove('cursor-active'));
+      });
+    }
+
+    const resizeSparkCanvas = () => {
+      const ratio = window.devicePixelRatio || 1;
+      sparkCanvas.width = Math.floor(window.innerWidth * ratio);
+      sparkCanvas.height = Math.floor(window.innerHeight * ratio);
+      sparkCanvas.style.width = `${window.innerWidth}px`;
+      sparkCanvas.style.height = `${window.innerHeight}px`;
+      sparkContext.setTransform(ratio, 0, 0, ratio, 0, 0);
+    };
+
+    const easeOut = (t) => t * (2 - t);
+
+    const createSpark = (event) => {
+      const colorOffset = Math.floor(Math.random() * sparkColors.length);
+
+      for (let i = 0; i < sparkConfig.count; i += 1) {
+        sparks.push({
+          x: event.clientX,
+          y: event.clientY,
+          angle: (Math.PI * 2 * i) / sparkConfig.count,
+          color: sparkColors[(i + colorOffset) % sparkColors.length],
+          startTime: performance.now()
+        });
+      }
+    };
+
+    const drawSparks = (timestamp) => {
+      sparkContext.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      for (let i = sparks.length - 1; i >= 0; i -= 1) {
+        const spark = sparks[i];
+        const elapsed = timestamp - spark.startTime;
+
+        if (elapsed >= sparkConfig.duration) {
+          sparks.splice(i, 1);
+          continue;
+        }
+
+        const progress = elapsed / sparkConfig.duration;
+        const eased = easeOut(progress);
+        const distance = eased * sparkConfig.radius;
+        const lineLength = sparkConfig.size * (1 - eased);
+        const alpha = 1 - progress;
+        const x1 = spark.x + distance * Math.cos(spark.angle);
+        const y1 = spark.y + distance * Math.sin(spark.angle);
+        const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
+        const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
+
+        sparkContext.globalAlpha = alpha;
+        sparkContext.strokeStyle = spark.color;
+        sparkContext.lineWidth = 2.4;
+        sparkContext.lineCap = 'round';
+        sparkContext.beginPath();
+        sparkContext.moveTo(x1, y1);
+        sparkContext.lineTo(x2, y2);
+        sparkContext.stroke();
+      }
+
+      sparkContext.globalAlpha = 1;
+      requestAnimationFrame(drawSparks);
+    };
+
+    resizeSparkCanvas();
+    window.addEventListener('resize', resizeSparkCanvas);
+    window.addEventListener('click', createSpark);
+    requestAnimationFrame(drawSparks);
+
+    const revealElements = document.querySelectorAll('.reveal, .reveal-item');
+
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14 });
+
+      revealElements.forEach((element, index) => {
+        element.style.setProperty('--reveal-delay', `${Math.min(index % 6, 5) * 70}ms`);
+        revealObserver.observe(element);
+      });
+    } else {
+      revealElements.forEach((element) => element.classList.add('is-visible'));
+    }
   </script>
 </body>
 </html>
