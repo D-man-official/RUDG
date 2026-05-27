@@ -304,10 +304,28 @@ pre {
   font: 700 1rem/1.8 "Courier New", monospace;
 }
 
-.floating-pill {
+.orbit-item {
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 2;
+  width: 50%;
+  height: 0;
+  transform-origin: 0 0;
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.orbit-blue { animation-name: orbit-blue; }
+.orbit-red { animation-name: orbit-red; }
+.orbit-yellow { animation-name: orbit-yellow; }
+.orbit-green { animation-name: orbit-green; }
+
+.floating-pill {
+  position: absolute;
+  right: 0;
+  top: 0;
   z-index: 2;
   display: grid;
   place-items: center;
@@ -318,24 +336,60 @@ pre {
   color: var(--white);
   font-weight: 900;
   box-shadow: 0 16px 32px rgba(60, 64, 67, 0.16);
-  --orbit-radius: clamp(150px, 42vw, 270px);
-  animation: orbit 18s linear infinite;
-  transform: translate(-50%, -50%) rotate(var(--orbit-start)) translateX(var(--orbit-radius)) rotate(calc(0deg - var(--orbit-start)));
+  transform: translate(50%, -50%);
+  animation-duration: 12s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
-.pill-blue { --orbit-start: 235deg; background: var(--blue); }
-.pill-red { --orbit-start: 342deg; background: var(--red); }
-.pill-yellow { --orbit-start: 60deg; background: var(--yellow); color: var(--ink); }
-.pill-green { --orbit-start: 155deg; background: var(--green); }
+.pill-blue { background: var(--blue); }
+.pill-red { background: var(--red); }
+.pill-yellow { background: var(--yellow); color: var(--ink); }
+.pill-green { background: var(--green); }
 
-@keyframes orbit {
-  from {
-    transform: translate(-50%, -50%) rotate(var(--orbit-start)) translateX(var(--orbit-radius)) rotate(calc(0deg - var(--orbit-start)));
-  }
+.orbit-blue .floating-pill { animation-name: counter-blue; }
+.orbit-red .floating-pill { animation-name: counter-red; }
+.orbit-yellow .floating-pill { animation-name: counter-yellow; }
+.orbit-green .floating-pill { animation-name: counter-green; }
 
-  to {
-    transform: translate(-50%, -50%) rotate(calc(var(--orbit-start) + 1turn)) translateX(var(--orbit-radius)) rotate(calc(-1turn - var(--orbit-start)));
-  }
+@keyframes orbit-blue {
+  from { transform: rotate(235deg); }
+  to { transform: rotate(595deg); }
+}
+
+@keyframes orbit-red {
+  from { transform: rotate(342deg); }
+  to { transform: rotate(702deg); }
+}
+
+@keyframes orbit-yellow {
+  from { transform: rotate(60deg); }
+  to { transform: rotate(420deg); }
+}
+
+@keyframes orbit-green {
+  from { transform: rotate(155deg); }
+  to { transform: rotate(515deg); }
+}
+
+@keyframes counter-blue {
+  from { transform: translate(50%, -50%) rotate(-235deg); }
+  to { transform: translate(50%, -50%) rotate(-595deg); }
+}
+
+@keyframes counter-red {
+  from { transform: translate(50%, -50%) rotate(-342deg); }
+  to { transform: translate(50%, -50%) rotate(-702deg); }
+}
+
+@keyframes counter-yellow {
+  from { transform: translate(50%, -50%) rotate(-60deg); }
+  to { transform: translate(50%, -50%) rotate(-420deg); }
+}
+
+@keyframes counter-green {
+  from { transform: translate(50%, -50%) rotate(-155deg); }
+  to { transform: translate(50%, -50%) rotate(-515deg); }
 }
 
 .about-section,
@@ -730,5 +784,11 @@ pre {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .orbit-item,
+  .floating-pill {
+    animation-duration: 12s !important;
+    animation-iteration-count: infinite !important;
   }
 }
